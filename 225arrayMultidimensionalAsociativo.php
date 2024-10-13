@@ -8,23 +8,23 @@
 </head>
 <body>
     <?php
-    // Inventa un array multidimensional de tipo asociativo. 
+    // Inventa un array multidimensional de tipo asociativo.
     $ave = array(
         array("Nombre" => "Gorrión común", "Huevos/año" => 17, "Hábitat" => "Campo"),
         array("Nombre" => "Pato colorado", "Huevos/año" => 18, "Hábitat" => "Humedal")
     );
-    echo "<pre>";
     print_r($ave);
-    echo "</pre>";
 
     echo "<br><br>";
 
+    $nombre = $_POST["nombre"];
+    $huevos = $_POST["huevos"];
+    $habitat = $_POST["habitat"];
+
     // Añade datos y léelo.
-    $nuevoAve = array("Nombre" => "Golondrina serrana", "Huevos/año" => 9, "Hábitat" => "Bosque");
+    $nuevoAve = array("Nombre" => $nombre, "Huevos/año" => $huevos, "Hábitat" => $habitat);
     array_push($ave, $nuevoAve);
-    echo "<pre>";
     print_r($ave);
-    echo "</pre>";
 
     echo "<br><br>";
 
@@ -34,39 +34,31 @@
             $aves["Huevos/año"] += 2;
         }
     }
-    echo "<pre>";
     print_r($ave);
-    echo "</pre>";
 
     echo "<br><br>";
 
     // Crea arrays unidimesionales donde guardes los datos en ese recorrido.
-    $nombre = array();
-    $huevosAño = array();
-    $habitat = array();
+    $nombreArray = array();
+    $huevosAñoArray = array();
+    $habitatArray = array();
 
     foreach ($ave as $aves) {
-        $nombre[] = $aves["Nombre"];
-        $huevosAño[] = $aves["Huevos/año"];
-        $habitat[] = $aves["Hábitat"];
+        $nombreArray[] = $aves["Nombre"];
+        $huevosAñoArray[] = $aves["Huevos/año"];
+        $habitatArray[] = $aves["Hábitat"];
     }
 
     // Muestra posteriormente los datos de esos creados.
-    echo "<pre>";
-    print_r($nombre);
-    echo "</pre>";
+    print_r($nombreArray);
 
     echo "<br><br>";
 
-    echo "<pre>";
-    print_r($huevosAño);
-    echo "</pre>";
+    print_r($huevosAñoArray);
 
     echo "<br><br>";
 
-    echo "<pre>";
-    print_r($habitat);
-    echo "</pre>";
+    print_r($habitatArray);
     ?>
 </body>
 </html>
