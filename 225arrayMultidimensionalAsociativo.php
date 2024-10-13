@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php
+    session_start();
     // Inventa un array multidimensional de tipo asociativo.
     $ave = array(
         array("Nombre" => "Gorrión común", "Huevos/año" => 17, "Hábitat" => "Campo"),
@@ -17,23 +18,23 @@
 
     echo "<br><br>";
 
-    $nombre = $_POST["nombre"];
-    $huevos = $_POST["huevos"];
-    $habitat = $_POST["habitat"];
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nombre = $_POST["nombre"];
+        $huevos = $_POST["huevos"];
+        $habitat = $_POST["habitat"];
 
-    // Añade datos y léelo.
-    $nuevoAve = array("Nombre" => $nombre, "Huevos/año" => $huevos, "Hábitat" => $habitat);
-    array_push($ave, $nuevoAve);
-    print_r($ave);
+        // Añade datos y léelo.
+        $nuevoAve = array("Nombre" => $nombre, "Huevos/año" => $huevos, "Hábitat" => $habitat);
+        array_push($ave, $nuevoAve);
 
-    echo "<br><br>";
-
-    // Realiza un cambio (por ejemplo aumentar la nómina). En mi caso aumentaré los huevos ya que consideramos que ha sido un año fértil.
-    foreach ($ave as &$aves) {
-        if(isset($aves["Huevos/año"])){
-            $aves["Huevos/año"] += 2;
+        // Realiza un cambio (por ejemplo aumentar la nómina). En mi caso aumentaré los huevos ya que consideramos que ha sido un año fértil.
+        foreach ($ave as &$aves) {
+            if(isset($aves["Huevos/año"])){
+                $aves["Huevos/año"] += 2;
+            }
         }
     }
+
     print_r($ave);
 
     echo "<br><br>";
