@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php
+    //Escribe un programa que obtenga la capital de un país y si no le decimos nada, que nos diga todas las capitales que sabe. Llama a una función pasándole el país o nada
     function obtenerCapital($pais = null){
         $capitales = array(
             "España" => "Madrid",

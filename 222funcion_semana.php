@@ -8,31 +8,32 @@
 </head>
 <body>
     <?php
+    //Escribe un programa que nos diga el día de la semana que iremos al cine. Llamará a una función que devuelve un día de la semana de forma aleatoria
     function diaSemana($dia){
         switch ($dia) {
             case 1:
-                echo "Lunes";
+                return "Lunes";
                 break;
             case 2:
-                echo "Martes";
+                return "Martes";
                 break;
             case 3:
-                echo "Miercoles";
+                return "Miercoles";
                 break;
             case 4:
-                echo "Jueves";
+                return "Jueves";
                 break;
             case 5:
-                echo "Viernes";
+                return "Viernes";
                 break;
             case 6:
-                echo "Sábado";
+                return "Sábado";
                 break;
             case 7:
-                echo "Domingo";
+                return "Domingo";
                 break;
             default:
-            echo "Día no válido";
+                return "Día no válido";
                 break;
         }
     }

@@ -12,6 +12,11 @@
     function calcularPotencia($base, $exp = 2){
         return pow($base, $exp);
     }
+    echo calcularPotencia(3);
+
+    echo "<br><br>";
+
+    echo calcularPotencia(3, 3);
     ?>
 </body>
 </html>
