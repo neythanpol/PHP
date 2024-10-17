@@ -11,11 +11,24 @@
     // EsCrIbE uNa FuNcIóN qUe TrAnSfOrMe UnA cAdEnA eN cAnI.
     $frase = "Ojalá el viernes sea fiesta";
     $fraseNueva = str_split($frase, 1);
+    $arrayMayus = array();
+    $arrayMinus = array();
+    $arrayUltimo = array();
+
+
+    $count = 0;
+    
+    for ($i=0; $i < count($fraseNueva); $i++) { 
+        if ($count % 2 === 0) {
+            mb_strtoupper($fraseNueva[$i]);
+        }else {
+            mb_strtolower($fraseNueva[$i]);
+        }
+    }
     
     foreach ($fraseNueva as $frase1) {
         echo $frase1;
-        echo "<br>";
-    };
+    }
     ?>
 </body>
 </html>
