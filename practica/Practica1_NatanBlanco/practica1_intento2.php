@@ -13,6 +13,8 @@
     // num_min y num_max determinan el rango al que pertenecen los números generados.
     // Guarda en contados cuantos hay menores a la mitad del rango y cuantos mayores.
     // Genera otro array números y vuelve a contar los menores y mayores a la mitad. Caso de haber más menores, nos quedaremos con el segundo números y cambiaremos el array.
+
+    // Control de errores: Control que exista, control que se ponga el dato bien y control lógico (menor debe ser menor a mayor).
     $num_numeros = $_GET("num_numeros");
     $num_min = $_GET("num_min");
     $num_max = $_GET("num_max");
