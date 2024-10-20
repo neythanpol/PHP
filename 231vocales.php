@@ -17,7 +17,7 @@
     $contU = 0;
     $total = 0;
 
-    $frase = strtoupper($frase);
+    $frase = strtoupper($frase); // Convierto la frase a mayúscula para no tener que contar ambos tipos de vocal.
     for ($i=0; $i < strlen($frase); $i++) { 
         if ($frase[$i] === "A") {
             $contA++;

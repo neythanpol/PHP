@@ -9,25 +9,21 @@
 <body>
     <?php
     // EsCrIbE uNa FuNcIóN qUe TrAnSfOrMe UnA cAdEnA eN cAnI.
-    $frase = "Ojalá el viernes sea fiesta";
-    $fraseNueva = str_split($frase, 1);
-    $arrayMayus = array();
-    $arrayMinus = array();
-    $arrayUltimo = array();
+    $frase = "Ojala el viernes sea fiesta";
+    $cont = 0; // El contador aumenta el número con cada espacio para que solo cuenten las letras
 
-
-    $count = 0;
-    
-    for ($i=0; $i < count($fraseNueva); $i++) { 
-        if ($count % 2 === 0) {
-            mb_strtoupper($fraseNueva[$i]);
-        }else {
-            mb_strtolower($fraseNueva[$i]);
+    for ($i=0; $i < mb_strlen($frase); $i++) {
+        
+        if ($frase[$i] !== " ") {
+            if ($cont % 2 == 0) {
+                $frase[$i] = mb_strtoupper($frase[$i]);
+            }else{
+                $frase[$i] = mb_strtolower($frase[$i]);
+            }
+            $cont++;
         }
-    }
-    
-    foreach ($fraseNueva as $frase1) {
-        echo $frase1;
+        
+        echo $frase[$i];
     }
     ?>
 </body>
