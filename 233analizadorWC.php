@@ -10,11 +10,11 @@
     <?php
     // Investiga que hace la función str_word_count, y vuelve a hacer el ejercicio.
     $frase = "Mañana no me apetece trabajar";
-    echo str_word_count($frase, 0);
+    echo str_word_count($frase, 0, 'ñ');
 
     echo "<br><br>";
 
-    $palabras = str_word_count($frase, 1);
+    $palabras = str_word_count($frase, 1, 'ñ');
     print_r($palabras);
 
     ?>
