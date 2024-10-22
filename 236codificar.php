@@ -29,7 +29,7 @@
         }else{
             // Aquí respetamos que el desplazamiento debe ser positivo
             if($desplazamiento < 0){
-                echo "El dedsplazamiento no puede ser negativo";
+                echo "El desplazamiento no puede ser negativo";
             }else{
             // Comparamos la letra de la frase
             for ($i=0; $i < strlen($fraseMinuscula); $i++) { 
