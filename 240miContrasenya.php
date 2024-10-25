@@ -9,44 +9,73 @@
 <body>
     <form action="240miContrasenya.php" method="get">
         <label for="contra">Ingresa tu contraseña:</label>
-        <input type="password" id="contra" name="contra" required>
-        <input type="submit" value="Validar">
+        <input type="password" id="contra" name="contra" required><br>
+        <label for="tamanio">Elige la longitud de la contraseña</label>
+        <select name="longitud" id="longitud" size="3" required>
+            <option value="" selected></option>
+            <option value="8">8</option>
+            <option value="12">12</option>
+            <option value="16">16</option>
+        </select><br>
+        <input type="submit" value="Enviar"><br><br>
     </form>
     <?php
     // Crea una función que a partir de un tamaño y unas necesidades (contiene mayúsculas, carácter numérico, especial...) genere una contraseña. Este programa también permite escribirla y comprueba si cumple los criterios.
-
-    if (isset($_GET["longitud"])) {
-        $longitud = $_GET["longitud"];
-
-        if (is_numeric($longitud)) {
-            if ($longitud > 3) {
-                echo "La longitud de la contraseña es: $longitud";
-                echo "<br><br>";
-            }else{
-                echo "La contraseña debe ser mayor a 3";
-                echo "<br><br>";
-            }
-        }else{
-            echo "La longitud debe ser un número";
-        }
-    }else{
-        echo "Debes poner la longitud en la URL";
-    }
 
     if (isset($_GET["contra"])) {
         $contraIngresada = $_GET["contra"];
     }
 
-    function validarContrasenya(){
+    if (isset($_GET["longitud"])) {
+        $longitud = intval($_GET["longitud"]);
+        if ($longitud === 8 || $longitud === 12 || $longitud === 16) {
+            echo "La longitud de la contraseña elegida es: $longitud";
+            echo "<br><br>";
+            validarContrasenya($contraIngresada, $longitud);
+        }
+    }
 
+    
+
+    function validarContrasenya($contraIngresada, $longitud){
+        $contadorContra = [
+            "especiales" => 0,
+            "mayusculas" => 0,
+            "minusculas" => 0,
+            "numeros" => 0
+        ];
+        if (strlen($contraIngresada) != $longitud) {
+            echo "La contraseña debe tener el mismo número de caracteres que has elegido<br>";
+            echo crearContrasenya($longitud);
+        }else{
+            for ($i=0; $i < $longitud; $i++) { 
+                $ascii = ord($contraIngresada[$i]);
+                if (($ascii >= 33 && $ascii <= 47) || ($ascii >= 58 && $ascii <= 64) || ($ascii >= 94 && $ascii <= 96) || ($ascii >= 123 && $ascii <= 126)) {
+                    $contadorContra["especiales"]++;
+                }elseif ($ascii >= 48 && $ascii <= 57) {
+                    $contadorContra["numeros"]++;
+                }elseif ($ascii >= 65 && $ascii <= 90) {
+                    $contadorContra["mayusculas"]++;
+                }elseif ($ascii >= 97 && $ascii <= 122) {
+                    $contadorContra["minusculas"]++;
+                }else {
+                    echo "Carácter no válido<br>";
+                    echo crearContrasenya($longitud);
+                }
+            }
+
+            if ($contadorContra["especiales"] > 0 && $contadorContra["mayusculas"] > 0 && $contadorContra["minusculas"] > 0 && $contadorContra["numeros"] > 0) {
+                echo "Contraseña válida<br>";
+                echo $contraIngresada;
+            }else{
+                echo "Contraseña inválida<br>";
+                echo crearContrasenya($longitud);
+            }
+        }
+        
     }
 
     function crearContrasenya($longitud){
-        if ($longitud < 4) {
-            return "Asegurate de que la contraseña es mayor a 3";
-        }else{
-
-        
         $password = array();
         $contadorContra = [
             "especiales" => 0,
@@ -86,17 +115,15 @@
                     break;
             }
         }
-        }
+        
         if ($contadorContra["especiales"] > 0 && $contadorContra["mayusculas"] > 0 && $contadorContra["minusculas"] > 0 && $contadorContra["numeros"] > 0) {
-            echo "Contraseña generada correctamente: ";
+            echo "Contraseña generada: ";
             $password = implode("", $password);
             return $password;
         }else{
             return crearContrasenya($longitud);
         }
     }
-    
-    echo crearContrasenya($longitud);
     ?>
 </body>
 </html>
