@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Natán Blanco">
+    <title>Datos Personales</title>
+</head>
+<body>
+    <h2>Formulario de Datos Personales</h2>
+    <form action="301datosPersonales.php" method="post" enctype="multipart/form-data">
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre" required><br><br>
+        <label for="apellido1">Primer Apellido:</label>
+        <input type="text" name="apellido1" id="apellido1" required><br><br>
+        <label for="apellido2">Segundo Apellido:</label>
+        <input type="text" name="apellido2" id="apellido2" required><br><br>
+        <label for="dni">DNI:</label>
+        <input type="text" name="dni" id="dni" required pattern="\d{8}[A-Za-z]"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required><br><br>
+        <label for="fecha">Fecha de Nacimiento:</label>
+        <input type="date" name="fecha" id="fecha" required>
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" name="telefono" id="telefono" required pattern="[0-9]{9}"><br><br>
+        <label>Sexo:</label>
+        <input type="radio" name="sexo" id="sexo_m" value="Masculino" required>
+        <label for="sexo_m">Masculino</label>
+        <input type="radio" name="sexo" id="sexo_f" value="Femenino" required>
+        <label for="sexo_f">Femenino</label><br><br>
+        <label for="estudios">Estudios:</label>
+        <select name="estudios" id="estudios">
+            <option value="ESO">ESO</option>
+            <option value="FP Grado Medio">FP Grado Medio</option>
+            <option value="Bachillerato">Bachillerato</option>
+            <option value="FP Grado Superior">FP Grado Superior</option>
+            <option value="Universidad">Universidad</option>
+        </select><br><br>
+        <label for="idioma">Idiomas:</label>
+        <input type="text" name="idioma" id="idioma" placeholder="Ej: Español, Inglés..."><br><br>
+        <label for="foto">Foto:</label>
+        <input type="file" name="foto" id="foto" accept="image/png, image/jpeg, image/jpg" required>
+        <label for="cv">Currículum Vitae:</label>
+        <input type="file" name="cv" id="cv" accept="application/pdf" required><br><br>
+
+        <input type="hidden" name="max_file_size" value="2097152">
+
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
