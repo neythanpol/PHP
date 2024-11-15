@@ -3,7 +3,9 @@
     include "conexion.php";
 
     // Ejecuta la consulta SQL
-    $consulta = "SELECT * FROM empresa";
+    $consulta = "SELECT * FROM alumnos";
+    // Guardar los registros en un array
+    $listaAlumnos = mysqli_query($mysqli_conexion, $consulta);
     $resultado = $mysqli_conexion -> query($consulta);
 ?>
 
@@ -30,27 +32,35 @@
     </style>
 </head>
 <body>
-    <h2>Lista de Empleados</h2><br>
+    <h2>Lista de Alumnos</h2><br>
     <table>
         <tr>
-            <th>Número de Empleado</th>
+            <th>ID Alumno</th>
+            <th>DNI</th>
             <th>Nombre</th>
-            <th>Apellidos</th>
+            <th>Primer Apellido</th>
+            <th>Segundo Apellido</th>
             <th>Email</th>
+            <th>Teléfono</th>
+            <th>Curso</th>
         </tr>
         <?php
-            if ($resultado -> num_rows > 0) {
+            if ($listaAlumnos -> num_rows > 0) {
                 // Recorre cada fila del resultado
                 while($row = $resultado -> fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . $row["num_empleado"] . "</td>";
+                    echo "<td>" . $row["id_alumno"] . "</td>";
+                    echo "<td>" . $row["dni"] . "</td>";
                     echo "<td>" . $row["nombre"] . "</td>";
-                    echo "<td>" . $row["apellidos"] . "</td>";
+                    echo "<td>" . $row["apellido1"] . "</td>";
+                    echo "<td>" . $row["apellido2"] . "</td>";
                     echo "<td>" . $row["email"] . "</td>";
+                    echo "<td>" . $row["telefono"] . "</td>";
+                    echo "<td>" . $row["curso"] . "</td>";
                     echo "</tr>";
                 }
             } else {
-                echo "<tr><td colspan='4'>No hay resultados</td></tr>";
+                echo "<tr><td colspan='8'>No hay resultados</td></tr>";
             }
         ?>
     </table>
