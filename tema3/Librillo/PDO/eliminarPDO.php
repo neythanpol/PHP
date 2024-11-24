@@ -3,30 +3,28 @@
 include "conexionPDOFuncion.php";
 
 try {
-    // Establecemos conexión con la base de datos usando la función conexion()
     $conexion = obtenerConexion();
 
-    // Sentencia SQL para borrar registros donde el nombre coincida con el valor dado
+    // Sentencia SQL para borrar registro
     $sql = "DELETE FROM persona WHERE nombre = :nombre";
 
-    // Preparamos la consulta SQL
-    $sentencia = $conexion->prepare($sql);
+    // Preparo la consulta 
+    $sentencia = $conexion -> prepare($sql);
 
-    // Definimos el valor de la variable $nombre para eliminar registros con ese nombre
-    $nombre = "Juan"; // Cambiar este valor según el nombre que desees eliminar
+    $nombre = "Alex"; 
 
-    // Vinculamos el marcador de posición :nombre con la variable $nombre
+    // Vinculo el parámetro :nombre 
     $sentencia->bindParam(':nombre', $nombre, PDO::PARAM_STR);
 
-    // Ejecutamos la consulta
+    // Ejecuto la consulta
     $sentencia->execute();
 
-    // Obtenemos el número de filas afectadas (registros eliminados)
-    $registrosEliminados = $sentencia->rowCount();
+    // Obtenemos el número de filas
+    $result = $sentencia -> rowCount();
 
     // Comprobamos si se eliminaron registros y mostramos un mensaje
-    if ($registrosEliminados > 0) {
-        echo "Se han eliminado $registrosEliminados registro(s) con el nombre '$nombre'.";
+    if ($result > 0) {
+        echo "Se han eliminado $result registro(s) con el nombre '$nombre'.";
     } else {
         echo "No se encontró ningún registro con el nombre '$nombre'.";
     }
