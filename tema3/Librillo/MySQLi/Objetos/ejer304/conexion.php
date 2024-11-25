@@ -7,6 +7,7 @@
         exit;
     }else{
         // Conectada correctamente
+        echo "Conexión exitosa a la base de datos.";
     }
      // Si estoy aquí es que la base de datos ha podido conectarse, por lo que seguiré con el código de la página.
 ?>

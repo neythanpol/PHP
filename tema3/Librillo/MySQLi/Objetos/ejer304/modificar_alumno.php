@@ -13,7 +13,7 @@ $telefono = $_POST['telefono'];
 $curso = $_POST['curso'];
 
 // Preparar la consulta de actualización
-$consulta = $conexion -> prepare("UPDATE alumnos SET dni = ?, nombre = ?, apellido1 = ?, apellido2 = ?, email = ?, telefono = ?, curso = ? WHERE id_persona = ?");
+$consulta = $conexion -> prepare("UPDATE alumnos SET dni = ?, nombre = ?, apellido1 = ?, apellido2 = ?, email = ?, telefono = ?, curso = ? WHERE id_alumno = ?");
 $consulta->bind_param("sssssssi", $dni, $nombre, $apellido1, $apellido2, $email, $telefono, $curso, $id);
 
 // Ejecutar la consulta
