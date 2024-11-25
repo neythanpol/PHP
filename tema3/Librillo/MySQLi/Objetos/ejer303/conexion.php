@@ -1,7 +1,7 @@
 <?php
     // Prueba de conexión a una base de datos.
 
-    $conexion = new mysqli("localhost", "root", "", "pruebas");// Servidor, Usuario, Contraseña, Base de datos
+    $conexion = new mysqli("localhost", "root", "", "prueba");// Servidor, Usuario, Contraseña, Base de datos
     if ($conexion -> connect_errno) {
         echo "Error de conexión con la base de datos: " . $conexion -> connect_errno;
         exit;
