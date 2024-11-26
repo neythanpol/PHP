@@ -45,8 +45,8 @@ include('conexion.php'); // Incluye la conexión a la base de datos
                     echo "<td>" . $alumnos['email'] . "</td>";
                     echo "<td>" . $alumnos['telefono'] . "</td>";
                     echo "<td>" . $alumnos['curso'] . "</td>";
-                    echo "<td><a href='formulario_modificar_alumno.php?id=" . $alumnos['id_alumno'] . "'><button type='button'>Modificar</a></td>";
-                    echo "<td><a href='eliminar_alumno.php?id=" . $alumnos['id_alumno'] . "'><button type='button'>Modificar</a></td>";
+                    echo "<td><a href='formulario_modificar_alumno.php?id_alumno=" . $alumnos['id_alumno'] . "'><button type='button'>Modificar</a></td>";
+                    echo "<td><a href='eliminar_alumno.php?id_alumno=" . $alumnos['id_alumno'] . "'><button type='button'>Eliminar</a></td>";
                     echo "</tr>";
                 }
             } else {

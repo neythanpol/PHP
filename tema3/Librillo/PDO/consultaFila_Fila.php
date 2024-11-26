@@ -1,8 +1,10 @@
 <?php
-    include "conexionPDO.php";
-
+    include "conexionPDOFuncion.php";
+    
     try {
-        $sql = "SELECT * FROM alumnos";
+        $conexion = obtenerConexion();
+
+        $sql = "SELECT * FROM persona";
 
         $sentencia = $conexion -> prepare($sql);
         $sentencia -> setFetchMode(PDO::FETCH_ASSOC);
@@ -17,5 +19,8 @@
         echo "El número de filas es: " . $num_filas;
     }catch (PDOException $e) {
         echo $e -> getMessage();
+    } finally {
+        // Cerrar la conexión
+        $conexion = null;
     }
 ?>

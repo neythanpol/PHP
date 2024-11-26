@@ -5,7 +5,7 @@
 <h1>Agregar Alumnos</h1>
 <form action="agregar_alumno.php" method="post">
     <label for="dni">DNI: </label>
-    <input type="text" name="nombre" id="nombre">
+    <input type="text" name="dni" id="dni">
 
     <label for="nombre">Nombre: </label>
     <input type="text" name="nombre" id="nombre">

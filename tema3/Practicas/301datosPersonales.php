@@ -64,7 +64,8 @@ if ($_FILES['cv']['type'] == "application/pdf") {
 
     <div class="curriculum">
         <h3>Currículum</h3>
-        <a href="<?php echo $carpetaDestino . $cvNombre; ?>" target="_blank">Descargar Currículum</a>
+        <embed src="<?php echo $carpetaDestino . $cvNombre; ?>" width="100%" height="500px"></embed>
+        <!-- <a href="<?php //echo $carpetaDestino . $cvNombre; ?>" target="_blank">Descargar Currículum</a>-->
     </div>
 </body>
 </html>
