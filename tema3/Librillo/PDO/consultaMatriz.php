@@ -1,5 +1,5 @@
 <?php
-    include "conexionPDO.php";
+    include "conexionPDOFuncion.php";
     
     try {   
         $conexion = obtenerConexion();
