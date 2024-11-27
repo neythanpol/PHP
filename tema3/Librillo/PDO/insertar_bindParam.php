@@ -4,6 +4,10 @@
     try {
         $conexion = obtenerConexion();
 
+        // Recibir datos del formulario
+        $nombre = $_POST['nombre'];
+        $apellidos = $_POST['apellidos'];
+
         // Sentencia SQL para la inserción de datos
         $sql = "INSERT INTO persona (nombre, apellidos) VALUES (:nombre, :apellidos)";
 
