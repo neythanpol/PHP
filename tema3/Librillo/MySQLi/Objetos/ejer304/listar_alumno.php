@@ -58,13 +58,6 @@ include('conexion.php'); // Incluye la conexión a la base de datos
 
     </table>
 </div>
-
-
-<?php
-include('pie.php'); // Incluye el pie de página
-?>
-
-
 <?php
 include('pie.php'); // Incluye el pie de página
 ?>
