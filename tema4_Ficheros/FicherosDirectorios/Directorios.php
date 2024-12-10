@@ -15,6 +15,7 @@
 
         fwrite($fp, $texto);
         fclose($fp);
+        
     } else {
         echo "El archivo no existe.";
     }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Natán Blanco Rodríguez">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: bisque;
+        }
+        div {
+            text-align: center;
+            background-color: aqua;
+            border: 2px solid;
+            padding: 25px;
+            width: 50%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+    <title>Consultar alumno por ID</title>
+</head>
+<body>
+    <div id="contenedor">
+        <form action="consultarPDO.php" method="post">
+            <label for="id">ID:</label><br>
+            <input type="number" name="id"><br><br>
+            <input type="submit" value="Insertar en la tabla">
+        </form>
+    </div>
+</body>
+</html>

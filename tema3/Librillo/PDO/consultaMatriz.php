@@ -4,7 +4,7 @@
     try {   
         $conexion = obtenerConexion();
 
-        $sql = "SELECT * FROM persona";
+        $sql = "SELECT * FROM alumnos";
 
         $sentencia = $conexion -> prepare($sql);
         $sentencia -> setFetchMode(PDO::FETCH_ASSOC);
@@ -13,8 +13,14 @@
         $personas = $sentencia -> fetchAll();
 
         foreach ($personas as $persona) {
-            echo "ID: " . $persona["id_persona"] . "<br />";
+            echo "ID: " . $persona["id_alumno"] . "<br />";
+            echo "DNI: " . $persona['dni'] . "<br />";
             echo "Nombre: " . $persona["nombre"] . "<br />";
+            echo "Primer Apellido: " . $persona["apellido1"] . "<br />";
+            echo "Segundo Apellido: " . $persona["apellido2"] . "<br />";
+            echo "Email: " . $persona["email"] . "<br />";
+            echo "Teléfono: " . $persona["telefono"] . "<br />";
+            echo "Curso: " . $persona["curso"] . "<br />";
         }
 
         $num_filas = $sentencia -> rowCount();

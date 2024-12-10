@@ -6,16 +6,16 @@
         $conexion = obtenerConexion();
 
         // Seleccionar las personas cuyo id_persona sea 1
-        $sql = "SELECT * FROM persona WHERE id_persona = :id";
+        $sql = "SELECT * FROM alumnos WHERE id_alumno = :id";
 
         // Preparo la consulta
         $sentencia = $conexion -> prepare($sql);
-
-        // Valor del ID a buscar
-        $id_a_buscar = 1;
+        
+        // Recibir datos del formulario
+        $id = $_POST['id'];
 
         // Vinculo el parámetro :id_persona
-        $sentencia -> bindParam(':id', $id_a_buscar, PDO::PARAM_INT);
+        $sentencia -> bindParam(':id', $id, PDO::PARAM_INT);
 
         // Ejecutar la consulta
         $sentencia -> execute();
@@ -25,13 +25,17 @@
 
         // Comprobamos si se eliminaron registros y mostramos un mensaje
         if (count($resultados) > 0) {
-            echo "Se han consultado " . count($resultados) . " registro(s) con el id '$id_a_buscar'.";
+            echo "Se han consultado " . count($resultados) . " registro(s) con el id '$id'.";
             // Mostrar los resultados
             foreach ($resultados as $fila) {
-                echo "ID: " . $fila['id_persona'] . "<br/>";
-                echo "Nombre: " . $fila['nombre'] . "<br/>";
-                echo "Apellidos: " . $fila['apellidos'] . "<br/>";
-                echo "Teléfono: " . $fila['telefono'] . "<br/>";
+                echo "ID: " . $fila['id_alumno'] . "<br />";
+                echo "DNI: " . $fila['dni'] . "<br />";
+                echo "Nombre: " . $fila["nombre"] . "<br />";
+                echo "Primer Apellido: " . $fila["apellido1"] . "<br />";
+                echo "Segundo Apellido: " . $fila["apellido2"] . "<br />";
+                echo "Email: " . $fila["email"] . "<br />";
+                echo "Teléfono: " . $fila["telefono"] . "<br />";
+                echo "Curso: " . $fila["curso"] . "<br />";
                 echo "<hr/>";
             }
         } else {

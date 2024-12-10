@@ -1,5 +1,5 @@
 <?php
-    $servidor = 'mysql:dbname=pruebas;host=localhost';
+    $servidor = 'mysql:dbname=gestion_alumnos;host=localhost';
     $usuario = 'root';
     $pw = '';
 

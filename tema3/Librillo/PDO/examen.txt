@@ -1,0 +1,31 @@
+ENUNCIADO:
+El ejercicio consiste en crear una aplicación a la que se acceda mediante un formulario que pida nombre (james_bon) y PIN (007).
+
+Caso de no ser correctos los datos introducidos, nos indicará qué dato o datos no son correctos y nos da otra oportunidad.
+
+Esta aplicación guarda, en base de datos, información sobre tus tareas realizadas o pendientes de realizar de tipo académico y de tipo personal.
+
+Para ello, crea una base de datos MySQL llamada: tareas_Nombre (tareas_Natan).
+
+Esta base de datos tendrá una tabla llamada tareas con los campos: título (no podrá haber tareas con el mismo título), descripción, fecha, prioridad, img_tarea, realizada.
+
+    - img_tarea: indicará mediante 2 imágenes si es de tipo académico o es de tipo personal (inventa 2 imágenes sencillas con un editor que incluya A para académico y P para personal).
+    - prioridad: indicará con 1 (mayor), 2, 3 (menor) la prioridad de la tarea.
+    - realizada: indicará si ya se ha realizado o no.
+
+Añade al menos un registro con datos de la fiesta de tu próximo cumpleaños (dato real).
+
+Se trata de realizar una aplicación que: A la que se acceda a través del usuario vez hayas accedido con el usuario james_bon. (2)
+
+    - Una vez se haya accedido, muestra un listado de las tareas que aún no has podido realizar por orden de prioridad. (3)
+    - Añade nuevas tareas. Una vez añadida, mostrará el listado inicial. No podrá haber tareas con el mismo título. (4)
+    - Desde esta aplicación se podrán eliminar las tareas (no elimines tu fiesta de cumpleaños!). Una vez eliminada, mostrará el listado inicial. (5)
+    - La página dará la posibilidad de modificar solo la descripción y realizada de las tareas. Una vez modificada, mostrará el listado inicial. (6)
+    - Tiene opción de ver las tareas que ya hayas realizado. (7)
+    - Cuando se inicia la aplicación, creará una carpeta llamada tu nombre en el directorio de la aplicación. Ten en cuenta que puede existir una carpeta con el mismo nombre con carpetas vacías y con archivos, por lo que borrará todo su contenido antes de crearla. (8)
+    - Genera un archivo con un listado de las tareas realizadas, a modo de histórico, que guardará en la carpeta anterior. El archivo llamado "hechasNatan.txt", tendrá un registro por línea y almacenará título y descripción. (9)
+
+1) Crea la base de datos y haz capturas de pantalla donde muestres datos y propiedades (1 punto). Haz una copia de seguridad de tu base de datos (0'5 puntos). Entrega las capturas en un documento y la copia de seguridad.
+2) Acceso de usuario james_bon (1 punto). Mensajes de error correctos (0'5 puntos).
+3) Listado de las tareas que aún no has realizado por orden de prioridad (1 punto).
+4) 

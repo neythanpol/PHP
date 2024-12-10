@@ -7,9 +7,10 @@
         // Recibir datos del formulario
         $nombre = $_POST['nombre'];
         $apellidos = $_POST['apellidos'];
+        $telefono = $_POST['telefono'];
 
         // Sentencia SQL para la inserción de datos
-        $sql = "INSERT INTO persona (nombre, apellidos) VALUES (:nombre, :apellidos)";
+        $sql = "INSERT INTO persona (nombre, apellidos, telefono) VALUES (:nombre, :apellidos, :telefono)";
 
         // Preparación de la consulta
         $sentencia = $conexion -> prepare($sql);
@@ -18,6 +19,7 @@
         // Tipo de datos PDO::PARAM_ST (si es String), PDO::PARAM_INT (si es entero)
         $sentencia -> bindParam(':nombre', $nombre, PDO::PARAM_STR);
         $sentencia -> bindParam(':apellidos', $apellidos, PDO::PARAM_STR);
+        $sentencia -> bindParam(':telefono', $telefono, PDO::PARAM_STR);
 
         // Ejecución de la consulta
         $sentencia -> execute();
