@@ -1,0 +1,86 @@
+
+/* FUENTE  */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('./Ubuntu-Regular.ttf');
+}
+* {
+    font-family: 'Ubuntu', sans-serif;
+    
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 97vh;
+    align-items: center;
+    background: linear-gradient(to bottom, #074799 , #009990 30vh);
+}
+hr {
+    width: 80vw;
+    border: 2px solid #E1FFBB;
+    margin: 5vh 0;
+}
+form {
+    max-width: 60vw;
+    min-width: 30vw;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
+}
+h1 {
+    color: #E1FFBB
+}
+
+label, p {
+    margin-bottom: 4vh;
+    color: #001A6E;
+    font-weight: bold;
+}
+p {
+    display: none;
+}
+
+input {
+    margin-bottom: 7vh;
+    
+    
+}
+
+/* CAMPOS A RELLENAR EN EL FORMULARIO*/
+input[type="text"], input[type="password"]{
+    padding: 2vh;
+    border: 2px solid #E1FFBB;
+    border-radius: 5px;
+    background-color: transparent;
+    color:#E1FFBB;
+    font-size: 18px;
+}
+
+input::placeholder {
+    color: #001a6e7a;
+}
+
+
+/* BOTONES  */
+button, a {
+    text-decoration: none;
+    font-size: large;
+    padding: 2vh;
+    margin-bottom: 5vh;
+    background-color: #074799;
+    color: #E1FFBB;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    box-shadow: 0px 0px 5px 5px #074799;
+}
+
+button:hover, a:hover {
+    background-color: transparent;
+    font-weight: bold;
+    transform: scale(1.15);
+    transition: all 0.3 ease-in;
+    box-shadow: 0px 0px 5px 5px transparent;
+}

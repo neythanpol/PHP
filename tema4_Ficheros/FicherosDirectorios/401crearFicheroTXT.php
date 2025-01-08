@@ -20,7 +20,7 @@ $resultado = $conexion->query($sql);
 // Comprobar si hay resultados
 if ($resultado->num_rows > 0) {
     // Abrir archivo en modo escritura
-    $archivo = fopen("resultado.txt", "w");
+    $archivo = fopen("listadoPersonas.txt", "w");
 
     // Escribir los datos en el archivo
     while($fila = $resultado->fetch_assoc()) {
@@ -31,12 +31,12 @@ if ($resultado->num_rows > 0) {
     // Cerrar el archivo
     fclose($archivo);
 
-    echo "Datos guardados en resultado.txt<br>";
+    echo "Datos guardados en listadoPersonas.txt<br>";
 } else {
     echo "No se encontraron resultados";
 }
 
-$contenido = file_get_contents("resultado.txt");
+$contenido = file_get_contents("listadoPersonas.txt");
 
 if ($contenido !== false) {
     // Dividir el contenido en líneas
