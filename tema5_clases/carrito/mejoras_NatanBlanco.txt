@@ -1,0 +1,1 @@
+He añadido la opción de vaciar el carrito, eliminar productos de 1 en 1, tener un usuario admin que controla los productos pudiendo añadir, modificar o eliminar. También cookies y suma el precio dependiendo del número de productos del mismo tipo añadidos

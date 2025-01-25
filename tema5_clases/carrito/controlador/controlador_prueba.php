@@ -20,15 +20,15 @@
 
     // Obtener la lista de productos desde la base de datos
     $sql = "SELECT * FROM productos";
-    $stmt = $pdo -> query($sql);
+    $stmt = $pdo->query($sql);
     $productos = [];
-    while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $productos[] = new Producto($row['id'], $row['nombre'], $row['precio'], $row['descripcion'], $row['imagen']);
     }
 
-    // Función para actualizar la cookie del carrito 
-    function actualizar_cookie_carrito() { 
-        setcookie('carrito', serialize($_SESSION['carrito']), time() + (24 * 60 * 60 * 30), "/"); 
+    // Función para actualizar la cookie del carrito
+    function actualizar_cookie_carrito() {
+        setcookie('carrito', serialize($_SESSION['carrito']), time() + (24 * 60 * 60 * 30), "/");
     }
 
     // Manejar la acción de agregar al carrito
@@ -66,9 +66,11 @@
     // Manejar la acción de vaciar el carrito
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['vaciar'])) {
         $_SESSION['carrito'] = [];
-        // Eliminar la cookie del carrito
-        setcookie('carrito', '', time() - 3600, "/");
+        actualizar_cookie_carrito();
         header('Location: ../vista/carrito.php');
         exit();
     }
+
+    // Actualizar la cookie del carrito al cargar la página de productos
+    actualizar_cookie_carrito();
 ?>
